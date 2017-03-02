@@ -8,7 +8,9 @@ The first thing you need to do before starting a project is register for an API 
 at [the official website](https://forge.laravel.com/user/profile#/api)
 
 #Download Project
+```bash
 composer require mastashake08/laravel-forge-php-sdk
+```
 
 #Usage
 Follow the conventions in the [API documentation](https://forge.laravel.com/api-documentation) , for example to list all servers
