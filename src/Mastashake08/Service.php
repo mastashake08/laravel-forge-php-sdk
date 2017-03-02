@@ -1,7 +1,7 @@
 <?php
-namespace Mastashake08;
-use Mastashake08\ApiRequestor;
-use Mastashake08\Forge;
+namespace Mastashake08\Forge;
+use Mastashake08\Forge\ApiRequestor;
+use Mastashake08\Forge\Forge;
 class Service{
 
   public static function rebootMysql($id){

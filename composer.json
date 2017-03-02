@@ -7,7 +7,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mastashake08\\": "src/Mastashake08/"
+            "Mastashake08\\Forge\\": "src/Mastashake08/"
         }
     },
     "license": "MIT",

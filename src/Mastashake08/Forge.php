@@ -1,5 +1,5 @@
 <?php
-namespace Mastashake08;
+namespace Mastashake08\Forge;
 
 class Forge
 {

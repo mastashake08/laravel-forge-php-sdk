@@ -1,7 +1,7 @@
 <?php
-namespace Mastashake08;
-use Mastashake08\Forge;
-use Mastashake08\ApiRequestor;
+namespace Mastashake08\Forge;
+use Mastashake08\Forge\Forge;
+use Mastashake08\Forge\ApiRequestor;
 class Job{
 public static function create($id,$params){
   return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/jobs",$params);

@@ -1,6 +1,6 @@
 <?php
-namespace Mastashake08;
-use Mastashake08\Forge;
+namespace Mastashake08\Forge;
+use Mastashake08\Forge\Forge;
 use GuzzleHttp\Client;
 class ApiRequestor{
 
