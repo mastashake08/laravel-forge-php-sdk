@@ -10,7 +10,7 @@ at [the official website](https://forge.laravel.com/user/profile#/api)
 #Download Project
 composer require mastashake08/laravel-forge-php-sdk
 
-#Use
+#Usage
 Follow the conventions in the [API documentation](https://forge.laravel.com/api-documentation) , for example to list all servers
 ```php
 use Mastashake08\Forge\Server;
@@ -37,6 +37,7 @@ The following objects are available via the SDK
 * SSH
 * Wordpress
 * Worker
+
 #Contribution
 This project is not yet complete, always welcome pull request to help finish functionality!
 
