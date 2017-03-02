@@ -5,19 +5,38 @@ PHP SDK is a wrapper around that API to be used in your PHP projects
 
 # Get A Key
 The first thing you need to do before starting a project is register for an API token
-at [https://forge.laravel.com/user/profile#/api]
+at [the official website](https://forge.laravel.com/user/profile#/api)
 
 #Download Project
 composer require mastashake08/laravel-forge-php-sdk
 
 #Use
-Follow the conventions in the API documentation [https://forge.laravel.com/api-documentation], for example to list all servers
+Follow the conventions in the [API documentation](https://forge.laravel.com/api-documentation) , for example to list all servers
 ```php
 use Mastashake08\Forge\Server;
 use Mastashake08\Forge\Forge;
 Forge::setApiKey($apiKey);
 echo Server::all(); // shows all servers in JSON Format
 ```
+##Objects
+The following objects are available via the SDK
+* Certificate
+* Config
+* Credential
+* Daemon
+* Deployment
+* Firewall
+* Git
+* Job
+* Mysql
+* MysqlUser
+* Recipe
+* Server
+* Service
+* Site
+* SSH
+* Wordpress
+* Worker
 #Contribution
 This project is not yet complete, always welcome pull request to help finish functionality!
 
