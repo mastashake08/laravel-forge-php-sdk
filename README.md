@@ -9,3 +9,17 @@ at https://forge.laravel.com/user/profile#/api
 
 #Download Project
 composer require mastashake08/laravel-forge-php-sdk
+
+#Use
+Follow the conventions in the API documentation (https://forge.laravel.com/api-documentation), for example to list all servers
+
+use Mastashake08\Forge\Server;
+use Mastashake08\Forge\Forge;
+Forge::setApiKey($apiKey);
+echo Server::all(); // shows all servers in JSON Format
+
+#Contribution
+This project is not yet complete, always welcome pull request to help finish functionality!
+
+#Questions
+Email all questions to jyrone.parker@gmail.com
