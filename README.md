@@ -39,7 +39,7 @@ The following objects are available via the SDK
 * Worker
 
 #Contribution
-This project is not yet complete, always welcome pull request to help finish functionality!
+This project is ongoing feel free to submit a pull request and help make this project better!
 
 #Questions
 Email all questions to jyrone.parker@gmail.com
