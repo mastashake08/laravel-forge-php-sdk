@@ -1,0 +1,15 @@
+{
+    "name": "mastashake08/laravel-forge-php-sdk",
+    "description": "PHP SDK for accessing Laravel Forge API",
+    "type": "library",
+    "require": {
+        "guzzle/guzzle": "^3.9"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jyrone Parker",
+            "email": "jyrone.parker@gmail.com"
+        }
+    ]
+}

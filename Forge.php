@@ -5,7 +5,7 @@ class Forge
 {
 
 public static $apiKey;
-public statuc $apiBase = 'https://forge.laravel.com/api';
+public statuc $apiBase = 'https://forge.laravel.com/api/v1/servers';
 
 public static function getApiKey(){
 return self::$apiKey;
