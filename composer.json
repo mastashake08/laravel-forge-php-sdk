@@ -3,7 +3,12 @@
     "description": "PHP SDK for accessing Laravel Forge API",
     "type": "library",
     "require": {
-        "guzzle/guzzle": "^3.9"
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mastashake08\\": "src/Mastashake08/"
+        }
     },
     "license": "MIT",
     "authors": [
