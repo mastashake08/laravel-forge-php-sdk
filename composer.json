@@ -1,6 +1,6 @@
 {
     "name": "mastashake08/laravel-forge-php-sdk",
-    "version": "dev-master",
+    "version": "1.0.0",
     "description": "PHP SDK for accessing Laravel Forge API",
     "type": "library",
     "require": {
