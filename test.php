@@ -4,8 +4,8 @@ require __DIR__ . '/vendor/autoload.php';
 use Mastashake08\Forge\Forge;
 use Mastashake08\Forge\Server;
 use Mastashake08\Forge\Credential;
-Forge::setApiKey($apiKey='');
-//echo Server::all();
-//echo Server::retrieve(74809);
-echo Credential::all();
+use Mastashake08\Forge\Site;
+use Mastashake08\Forge\Wordpress;
+Forge::setApiKey($apiKey);
+echo Server::all();
 ?>

@@ -16,9 +16,14 @@ class ApiRequestor{
     if(self::$_client == null){
       self::init();
     }
+    foreach($params as $key=>$value){
+      echo "{$key} => {$value}\n";
+    }
     $res = self::$_client->request($method, $url, [
-      'headers' => ['Authorization' => 'Bearer '.Forge::getApiKey()],
-      'form_data' => $params
+      'headers' => ['Authorization' => 'Bearer '.Forge::getApiKey(),
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'],
+      'json' => $params
     ]);
     return $res->getBody();
   }
