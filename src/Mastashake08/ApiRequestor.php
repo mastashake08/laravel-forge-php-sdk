@@ -3,20 +3,16 @@
 namespace Mastashake08\Forge;
 
 use GuzzleHttp\Client;
-
+// We use the laravel based collect function as it has SOOOOOO MANY great helper functions.
 class ApiRequestor
 {
     private static $_client;
 
-    public function __construct()
-    {
-    }
-
     private static function init()
     {
         self::$_client = new Client([
-      'base_url' => Forge::getBaseUrl(),
-    ]);
+            'base_url' => Forge::getBaseUrl(),
+        ]);
     }
 
     public static function sendRequest($method, $url, $params = [])
@@ -28,12 +24,14 @@ class ApiRequestor
             echo "{$key} => {$value}\n";
         }
         $res = self::$_client->request($method, $url, [
-      'headers' => ['Authorization' => 'Bearer '.Forge::getApiKey(),
-                    'Accept'        => 'application/json',
-                    'Content-Type'  => 'application/json', ],
-      'json' => $params,
-    ]);
+            'headers' => [
+                'Authorization' => 'Bearer '.Forge::getApiKey(),
+                'Accept'        => 'application/json',
+                'Content-Type'  => 'application/json', 
+            ],
+            'json' => $params,
+        ]);
 
-        return $res->getBody();
+        return collect(json_decode($res->getBody()->getContents(), true));
     }
 }
