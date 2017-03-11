@@ -29,7 +29,7 @@ class Certificate
         return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates/{$certId}");
     }
 
-    public static function letsEncrypt($id, $siteId)
+    public static function letsEncrypt($id, $siteId, $params)
     {
         return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/letsencrypt", $params);
     }
