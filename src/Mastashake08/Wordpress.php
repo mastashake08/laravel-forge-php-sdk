@@ -15,9 +15,7 @@ class Wordpress
      */
     public function install($id, $siteId, $params)
     {
-        echo "/{$id}/sites/{$siteId}/wordpress";
-
-        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/wordpress", $params);
+        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/wordpress", $params);
     }
 
     /**
@@ -28,6 +26,6 @@ class Wordpress
      */
     public function uninstall($id, $siteId)
     {
-        return $this->sendRequest('DELETE', "/{$id}/sites/{$siteId}/wordpress");
+        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/wordpress");
     }
 }
