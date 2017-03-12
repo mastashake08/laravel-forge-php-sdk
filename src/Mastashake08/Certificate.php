@@ -4,43 +4,45 @@ namespace Mastashake08\Forge;
 
 class Certificate
 {
-    public static function create($id, $siteId, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates", $params);
+        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/certificates", $params);
     }
 
-    public static function all($id, $siteId)
+    public function all($id, $siteId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates");
+        return $this->sendRequest('GET', "/{$id}/sites/{$siteId}/certificates");
     }
 
-    public static function retrieve($id, $siteId)
+    public function retrieve($id, $siteId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates");
+        return $this->sendRequest('GET', "/{$id}/sites/{$siteId}/certificates");
     }
 
-    public static function update($id, $siteId, $params)
+    public function update($id, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('PUT', Forge::getBaseUrl()."/{$id}/sites/{$siteId}", $params);
+        return $this->sendRequest('PUT', "/{$id}/sites/{$siteId}", $params);
     }
 
-    public static function delete($id, $siteId, $certId)
+    public function delete($id, $siteId, $certId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates/{$certId}");
+        return $this->sendRequest('DELETE', "/{$id}/sites/{$siteId}/certificates/{$certId}");
     }
 
-    public static function letsEncrypt($id, $siteId, $params)
+    public function letsEncrypt($id, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/letsencrypt", $params);
+        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/letsencrypt", $params);
     }
 
-    public static function getSigningRequest($serverId, $siteId, $id)
+    public function getSigningRequest($serverId, $siteId, $id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
+        return $this->sendRequest('GET', "/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
     }
 
-    public static function deleteRequest($serverId, $siteId, $id)
+    public function deleteRequest($serverId, $siteId, $id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
+        return $this->sendRequest('POST', "/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
     }
 }

@@ -4,15 +4,17 @@ namespace Mastashake08\Forge;
 
 class Wordpress
 {
-    public static function install($id, $siteId, $params)
-    {
-        echo Forge::getBaseUrl()."/{$id}/sites/{$siteId}/wordpress";
+    use InteractsWithAPI;
 
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/wordpress", $params);
+    public function install($id, $siteId, $params)
+    {
+        echo "/{$id}/sites/{$siteId}/wordpress";
+
+        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/wordpress", $params);
     }
 
-    public static function uninstall($id, $siteId)
+    public function uninstall($id, $siteId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/wordpress");
+        return $this->sendRequest('DELETE', "/{$id}/sites/{$siteId}/wordpress");
     }
 }

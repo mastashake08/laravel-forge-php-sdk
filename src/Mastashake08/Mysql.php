@@ -4,23 +4,25 @@ namespace Mastashake08\Forge;
 
 class Mysql
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql", $params);
+        return $this->sendRequest('POST', "/{$id}/mysql", $params);
     }
 
-    public static function all($id)
+    public function all($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/mysql");
+        return $this->sendRequest('GET', "/{$id}/mysql");
     }
 
-    public static function retrieve($id, $databaseId)
+    public function retrieve($id, $databaseId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql/{$databaseId}");
+        return $this->sendRequest('POST', "/{$id}/mysql/{$databaseId}");
     }
 
-    public static function delete($id, $databaseId)
+    public function delete($id, $databaseId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/mysql/{$databaseId}");
+        return $this->sendRequest('DELETE', "/{$id}/mysql/{$databaseId}");
     }
 }

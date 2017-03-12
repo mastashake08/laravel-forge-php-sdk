@@ -4,10 +4,12 @@ namespace Mastashake08\Forge;
 
 class Credential
 {
-    public static $_url = 'https://forge.laravel.com/api/v1/credentials';
+    use InteractsWithAPI;
 
-    public static function all()
+    public $_url = 'https://forge.laravel.com/api/v1/credentials';
+
+    public function all()
     {
-        return ApiRequestor::sendRequest('GET', self::$_url);
+        return $this->sendRequest('GET', self::$_url);
     }
 }

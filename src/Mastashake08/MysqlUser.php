@@ -4,28 +4,30 @@ namespace Mastashake08\Forge;
 
 class MysqlUser
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql-users", $params);
+        return $this->sendRequest('POST', "/{$id}/mysql-users", $params);
     }
 
-    public static function all($id)
+    public function all($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/mysql-users");
+        return $this->sendRequest('GET', "/{$id}/mysql-users");
     }
 
-    public static function retrieve($id, $userId)
+    public function retrieve($id, $userId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}");
+        return $this->sendRequest('POST', "/{$id}/mysql-users/{$userId}");
     }
 
-    public static function update($id, $userId, $params)
+    public function update($id, $userId, $params)
     {
-        return ApiRequestor::sendRequest('PUT', Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}", $params);
+        return $this->sendRequest('PUT', "/{$id}/mysql-users/{$userId}", $params);
     }
 
-    public static function delete($id, $userId)
+    public function delete($id, $userId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}");
+        return $this->sendRequest('DELETE', "/{$id}/mysql-users/{$userId}");
     }
 }

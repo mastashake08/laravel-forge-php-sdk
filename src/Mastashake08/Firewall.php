@@ -4,23 +4,25 @@ namespace Mastashake08\Forge;
 
 class Firewall
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/firewall-rules", $params);
+        return $this->sendRequest('POST', "/{$id}/firewall-rules", $params);
     }
 
-    public static function list($id)
+    public function list($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/firewall-rules");
+        return $this->sendRequest('GET', "/{$id}/firewall-rules");
     }
 
-    public static function retrieve($id, $ruleId)
+    public function retrieve($id, $ruleId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/firewall-rules/{$ruleId}");
+        return $this->sendRequest('GET', "/{$id}/firewall-rules/{$ruleId}");
     }
 
-    public static function delete($id, $ruleId)
+    public function delete($id, $ruleId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/firewall-rules/{$ruleId}");
+        return $this->sendRequest('DELETE', "/{$id}/firewall-rules/{$ruleId}");
     }
 }

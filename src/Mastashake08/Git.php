@@ -4,13 +4,15 @@ namespace Mastashake08\Forge;
 
 class Git
 {
-    public static function install($id, $siteId, $params)
+    use InteractsWithAPI;
+
+    public function install($id, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/git", $params);
+        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/git", $params);
     }
 
-    public static function uninstall($id, $siteId)
+    public function uninstall($id, $siteId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/git");
+        return $this->sendRequest('DELETE', "/{$id}/sites/{$siteId}/git");
     }
 }

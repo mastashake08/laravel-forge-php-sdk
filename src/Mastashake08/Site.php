@@ -4,33 +4,35 @@ namespace Mastashake08\Forge;
 
 class Site
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites", $params);
+        return $this->sendRequest('POST', "/{$id}/sites", $params);
     }
 
-    public static function all($id)
+    public function all($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/sites");
+        return $this->sendRequest('GET', "/{$id}/sites");
     }
 
-    public static function retrieve($id, $siteId)
+    public function retrieve($id, $siteId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/sites/{$siteId}");
+        return $this->sendRequest('GET', "/{$id}/sites/{$siteId}");
     }
 
-    public static function update($id, $siteId, $params)
+    public function update($id, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('PUT', Forge::getBaseUrl()."/{$id}/sites/{$siteId}", $params);
+        return $this->sendRequest('PUT', "/{$id}/sites/{$siteId}", $params);
     }
 
-    public static function delete($id, $siteId)
+    public function delete($id, $siteId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/sites/{$siteId}");
+        return $this->sendRequest('DELETE', "/{$id}/sites/{$siteId}");
     }
 
-    public static function balance($id, $siteId)
+    public function balance($id, $siteId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/sites/{$siteId}/balancing");
+        return $this->sendRequest('POST', "/{$id}/sites/{$siteId}/balancing");
     }
 }

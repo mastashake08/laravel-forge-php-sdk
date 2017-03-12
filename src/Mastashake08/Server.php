@@ -4,53 +4,55 @@ namespace Mastashake08\Forge;
 
 class Server
 {
-    public static function all()
+    use InteractsWithAPI;
+
+    public function all()
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl());
+        return $this->sendRequest('GET', Forge::getBaseUrl());
     }
 
-    public static function retrieve($id)
+    public function retrieve($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}");
+        return $this->sendRequest('GET', "/{$id}");
     }
 
-    public static function create($params)
+    public function create($params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl(), $params);
+        return $this->sendRequest('POST', Forge::getBaseUrl(), $params);
     }
 
-    public static function update($id, $params)
+    public function update($id, $params)
     {
-        return ApiRequestor::sendRequest('PUT', Forge::getBaseUrl()."/{$id}", $params);
+        return $this->sendRequest('PUT', "/{$id}", $params);
     }
 
-    public static function updatePassword($id, $params)
+    public function updatePassword($id, $params)
     {
-        return ApiRequestor::sendRequest('PUT', Forge::getBaseUrl()."/{$id}/database-password", $params);
+        return $this->sendRequest('PUT', "/{$id}/database-password", $params);
     }
 
-    public static function delete($id)
+    public function delete($id)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}");
+        return $this->sendRequest('DELETE', "/{$id}");
     }
 
-    public static function rebootServer($id)
+    public function rebootServer($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/reboot");
+        return $this->sendRequest('POST', "/{$id}/reboot");
     }
 
-    public static function revoke($id)
+    public function revoke($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/revoke");
+        return $this->sendRequest('POST', "/{$id}/revoke");
     }
 
-    public static function reconnect($id)
+    public function reconnect($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/reconnect");
+        return $this->sendRequest('POST', "/{$id}/reconnect");
     }
 
-    public static function reactivate($id)
+    public function reactivate($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/reactivate");
+        return $this->sendRequest('POST', "/{$id}/reactivate");
     }
 }

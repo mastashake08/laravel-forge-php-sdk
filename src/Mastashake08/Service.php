@@ -4,33 +4,35 @@ namespace Mastashake08\Forge;
 
 class Service
 {
-    public static function rebootMysql($id)
+    use InteractsWithAPI;
+
+    public function rebootMysql($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql/reboot");
+        return $this->sendRequest('POST', "/{$id}/mysql/reboot");
     }
 
-    public static function stopMysql($id)
+    public function stopMysql($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/mysql/stop");
+        return $this->sendRequest('POST', "/{$id}/mysql/stop");
     }
 
-    public static function rebootNginx($id)
+    public function rebootNginx($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/nginx/reboot");
+        return $this->sendRequest('POST', "/{$id}/nginx/reboot");
     }
 
-    public static function stopNginx($id)
+    public function stopNginx($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/nginx/stop");
+        return $this->sendRequest('POST', "/{$id}/nginx/stop");
     }
 
-    public static function rebootPostgres($id)
+    public function rebootPostgres($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/postgres/reboot");
+        return $this->sendRequest('POST', "/{$id}/postgres/reboot");
     }
 
-    public static function stopPostgres($id)
+    public function stopPostgres($id)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/postgres/stop");
+        return $this->sendRequest('POST', "/{$id}/postgres/stop");
     }
 }

@@ -4,23 +4,25 @@ namespace Mastashake08\Forge;
 
 class Daemon
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/daemons", $params);
+        return $this->sendRequest('POST', "/{$id}/daemons", $params);
     }
 
-    public static function all($id)
+    public function all($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/daemons");
+        return $this->sendRequest('GET', "/{$id}/daemons");
     }
 
-    public static function delete($serverId, $daemonId)
+    public function delete($serverId, $daemonId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$serverId}/daemons/{$daemonId}");
+        return $this->sendRequest('DELETE', "/{$serverId}/daemons/{$daemonId}");
     }
 
-    public static function restart($serverId, $daemonId)
+    public function restart($serverId, $daemonId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/daemons/{$daemonId}/restart");
+        return $this->sendRequest('POST', "/{$serverId}/daemons/{$daemonId}/restart");
     }
 }

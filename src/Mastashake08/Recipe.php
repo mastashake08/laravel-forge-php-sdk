@@ -4,35 +4,37 @@ namespace Mastashake08\Forge;
 
 class Recipe
 {
-    public static $_url = 'https://forge.laravel.com/api/v1/recipes';
+    use InteractsWithAPI;
 
-    public static function create($params)
+    public $_url = 'https://forge.laravel.com/api/v1/recipes';
+
+    public function create($params)
     {
-        return ApiRequestor::sendRequest('POST', self::$_url, $params);
+        return $this->sendRequest('POST', self::$_url, $params);
     }
 
-    public static function all()
+    public function all()
     {
-        return ApiRequestor::sendRequest('GET', self::$_url);
+        return $this->sendRequest('GET', self::$_url);
     }
 
-    public static function retrieve($id)
+    public function retrieve($id)
     {
-        return ApiRequestor::sendRequest('GET', self::$_url."/{$id}");
+        return $this->sendRequest('GET', self::$_url."/{$id}");
     }
 
-    public static function update($id, $params)
+    public function update($id, $params)
     {
-        return ApiRequestor::sendRequest('PUT', self::$_url."/{$id}", $params);
+        return $this->sendRequest('PUT', self::$_url."/{$id}", $params);
     }
 
-    public static function delete($id)
+    public function delete($id)
     {
-        return ApiRequestor::sendRequest('DELETE', self::$_url."/{$id}");
+        return $this->sendRequest('DELETE', self::$_url."/{$id}");
     }
 
-    public static function run($id)
+    public function run($id)
     {
-        return ApiRequestor::sendRequest('POST', self::$_url."/{$id}/run");
+        return $this->sendRequest('POST', self::$_url."/{$id}/run");
     }
 }

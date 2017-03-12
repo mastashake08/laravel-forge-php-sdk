@@ -4,23 +4,25 @@ namespace Mastashake08\Forge;
 
 class Job
 {
-    public static function create($id, $params)
+    use InteractsWithAPI;
+
+    public function create($id, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/jobs", $params);
+        return $this->sendRequest('POST', "/{$id}/jobs", $params);
     }
 
-    public static function all($id)
+    public function all($id)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$id}/jobs");
+        return $this->sendRequest('GET', "/{$id}/jobs");
     }
 
-    public static function retrieve($id, $jobId)
+    public function retrieve($id, $jobId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$id}/jobs/{$jobId}");
+        return $this->sendRequest('POST', "/{$id}/jobs/{$jobId}");
     }
 
-    public static function delete($id, $jobId)
+    public function delete($id, $jobId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$id}/jobs/{$jobId}");
+        return $this->sendRequest('DELETE', "/{$id}/jobs/{$jobId}");
     }
 }

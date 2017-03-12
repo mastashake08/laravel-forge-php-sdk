@@ -4,28 +4,30 @@ namespace Mastashake08\Forge;
 
 class SSH
 {
-    public static function create($serverId, $siteId, $params)
+    use InteractsWithAPI;
+
+    public function create($serverId, $siteId, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/workers", $params);
+        return $this->sendRequest('POST', "/{$serverId}/sites/{$siteId}/workers", $params);
     }
 
-    public static function all($serverId, $siteId)
+    public function all($serverId, $siteId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/workers");
+        return $this->sendRequest('GET', "/{$serverId}/sites/{$siteId}/workers");
     }
 
-    public static function retrieve($serverId, $siteId, $workerId)
+    public function retrieve($serverId, $siteId, $workerId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/workers/{$workerId}");
+        return $this->sendRequest('POST', "/{$serverId}/sites/{$siteId}/workers/{$workerId}");
     }
 
-    public static function delete($serverId, $siteId, $workerId)
+    public function delete($serverId, $siteId, $workerId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/workers/{$workerId}");
+        return $this->sendRequest('DELETE', "/{$serverId}/sites/{$siteId}/workers/{$workerId}");
     }
 
-    public static function restart($serverId, $siteId, $workerId)
+    public function restart($serverId, $siteId, $workerId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/workers/{$workerId}/restart");
+        return $this->sendRequest('POST', "/{$serverId}/sites/{$siteId}/workers/{$workerId}/restart");
     }
 }

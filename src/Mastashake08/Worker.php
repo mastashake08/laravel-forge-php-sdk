@@ -4,23 +4,25 @@ namespace Mastashake08\Forge;
 
 class Worker
 {
-    public static function create($serverId, $params)
+    use InteractsWithAPI;
+
+    public function create($serverId, $params)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/keys", $params);
+        return $this->sendRequest('POST', "/{$serverId}/keys", $params);
     }
 
-    public static function all($serverId)
+    public function all($serverId)
     {
-        return ApiRequestor::sendRequest('GET', Forge::getBaseUrl()."/{$serverId}/keys");
+        return $this->sendRequest('GET', "/{$serverId}/keys");
     }
 
-    public static function retrieve($serverId, $keyId)
+    public function retrieve($serverId, $keyId)
     {
-        return ApiRequestor::sendRequest('POST', Forge::getBaseUrl()."/{$serverId}/keys/{$keyId}");
+        return $this->sendRequest('POST', "/{$serverId}/keys/{$keyId}");
     }
 
-    public static function delete($serverId, $keyId)
+    public function delete($serverId, $keyId)
     {
-        return ApiRequestor::sendRequest('DELETE', Forge::getBaseUrl()."/{$serverId}/keys/{$keyId}");
+        return $this->sendRequest('DELETE', "/{$serverId}/keys/{$keyId}");
     }
 }

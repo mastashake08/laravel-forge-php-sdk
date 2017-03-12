@@ -4,7 +4,7 @@ namespace Mastashake08\Forge;
 
 use GuzzleHttp\Client;
 
-class ApiRequestor
+trait InteractsWithAPI
 {
     private static $_client;
 
