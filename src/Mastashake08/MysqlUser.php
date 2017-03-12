@@ -41,7 +41,7 @@ class MysqlUser
      */
     public function retrieve($id, $userId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql-users/{$userId}");
+        return $this->sendRequest('GET', "/servers/{$id}/mysql-users/{$userId}");
     }
 
     /**

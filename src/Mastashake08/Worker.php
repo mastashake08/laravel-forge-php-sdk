@@ -44,7 +44,7 @@ class Worker
      */
     public function retrieve($serverId, $siteId, $workerId)
     {
-        return $this->sendRequest('POST', "/servers/{$serverId}/sites/{$siteId}/workers/{$workerId}");
+        return $this->sendRequest('GET', "/servers/{$serverId}/sites/{$siteId}/workers/{$workerId}");
     }
 
     /**

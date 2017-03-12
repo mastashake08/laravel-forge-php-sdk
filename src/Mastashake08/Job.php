@@ -41,7 +41,7 @@ class Job
      */
     public function retrieve($id, $jobId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/jobs/{$jobId}");
+        return $this->sendRequest('GET', "/servers/{$id}/jobs/{$jobId}");
     }
 
     /**

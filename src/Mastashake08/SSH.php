@@ -41,7 +41,7 @@ class SSH
      */
     public function retrieve($serverId, $keyId)
     {
-        return $this->sendRequest('POST', "/servers/{$serverId}/keys/{$keyId}");
+        return $this->sendRequest('GET', "/servers/{$serverId}/keys/{$keyId}");
     }
 
     /**

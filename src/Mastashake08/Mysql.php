@@ -41,7 +41,7 @@ class Mysql
      */
     public function retrieve($id, $databaseId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql/{$databaseId}");
+        return $this->sendRequest('GET', "/servers/{$id}/mysql/{$databaseId}");
     }
 
     /**
