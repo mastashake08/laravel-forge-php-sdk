@@ -21,6 +21,20 @@ class Certificate
     }
 
     /**
+     * Get a single SSL Cert for a site on a given server
+     *
+     * @param $id
+     * @param $siteId
+     * @param $certId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $siteId, $certId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/certificates/{$certId}");
+    }
+
+    /**
      * Get all SSL Certs for a site on a given server.
      *
      * @param $id

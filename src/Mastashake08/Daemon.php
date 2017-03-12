@@ -20,6 +20,19 @@ class Daemon
     }
 
     /**
+     * Get a single Daemon for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $params, $daemonId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/daemons/{$daemonId}", $params);
+    }
+
+    /**
      * Get all daemons for a given server.
      *
      * @param $id
