@@ -4,7 +4,7 @@ namespace Mastashake08\Forge;
 
 use GuzzleHttp\Client;
 
-trait ApiRequestor
+trait InteractsWithAPI
 {
     /**
      * The client variable use to make requests.
