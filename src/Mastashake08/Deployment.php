@@ -99,34 +99,6 @@ class Deployment
     }
 
     /**
-     * Obtain a LetsEncrypt certificate.
-     *
-     * @param $id
-     * @param $siteId
-     * @param $params
-     *
-     * @return \Psr\Http\Message\StreamInterface
-     */
-    public function letsEncrypt($id, $siteId, $params)
-    {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/letsencrypt", $params);
-    }
-
-    /**
-     * Get the full certificate signing request content.
-     *
-     * @param $serverId
-     * @param $siteId
-     * @param $id
-     *
-     * @return \Psr\Http\Message\StreamInterface
-     */
-    public function getSigningRequest($serverId, $siteId, $id)
-    {
-        return $this->sendRequest('GET', "/servers/{$serverId}/sites/{$siteId}/deployment/{$id}/csr");
-    }
-
-    /**
      * @param $serverId
      * @param $siteId
      * @param $id
