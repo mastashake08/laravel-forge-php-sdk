@@ -3,7 +3,7 @@
 namespace Mastashake08\Forge;
 
 use GuzzleHttp\Client;
-// We use the laravel based collect function as it has SOOOOOO MANY great helper functions.
+
 class ApiRequestor
 {
     private static $_client;
@@ -32,6 +32,6 @@ class ApiRequestor
             'json' => $params,
         ]);
 
-        return collect(json_decode($res->getBody()->getContents(), true));
+        return $res->getBody();
     }
 }
