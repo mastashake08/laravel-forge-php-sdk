@@ -2,7 +2,7 @@
 
 namespace Mastashake08\Forge;
 
-class SSH
+class Worker
 {
     use InteractsWithAPI;
 
