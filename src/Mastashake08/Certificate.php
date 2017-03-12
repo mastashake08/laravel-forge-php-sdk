@@ -7,10 +7,12 @@ class Certificate
     use InteractsWithAPI;
 
     /**
-     * Create a SSL Cert for a site on a given server
+     * Create a SSL Cert for a site on a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $siteId, $params)
@@ -19,9 +21,11 @@ class Certificate
     }
 
     /**
-     * Get all SSL Certs for a site on a given server
+     * Get all SSL Certs for a site on a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id, $siteId)
@@ -30,10 +34,12 @@ class Certificate
     }
 
     /**
-     * Update an SLL Cert for a site on a given server
+     * Update an SLL Cert for a site on a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function update($id, $siteId, $params)
@@ -42,10 +48,12 @@ class Certificate
     }
 
     /**
-     * Delete an SSL Cert for a site on a given server
+     * Delete an SSL Cert for a site on a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $certId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $siteId, $certId)
@@ -54,10 +62,12 @@ class Certificate
     }
 
     /**
-     * Obtain an SSL Cert for a site on a given server
+     * Obtain an SSL Cert for a site on a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function letsEncrypt($id, $siteId, $params)
@@ -66,10 +76,12 @@ class Certificate
     }
 
     /**
-     * Get a signing request for a site on a given server
+     * Get a signing request for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getSigningRequest($serverId, $siteId, $id)
@@ -78,11 +90,13 @@ class Certificate
     }
 
     /**
-     * Delete an SSL Cert for a site on a given server
+     * Delete an SSL Cert for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function deleteRequest($serverId, $siteId, $id, $params)

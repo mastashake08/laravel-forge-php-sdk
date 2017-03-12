@@ -7,9 +7,11 @@ class Site
     use InteractsWithAPI;
 
     /**
-     * Create a new site for a given server
+     * Create a new site for a given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -18,8 +20,10 @@ class Site
     }
 
     /**
-     * Get all sites for a given server
+     * Get all sites for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id)
@@ -28,9 +32,11 @@ class Site
     }
 
     /**
-     * Get a site for a given server
+     * Get a site for a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id, $siteId)
@@ -39,10 +45,12 @@ class Site
     }
 
     /**
-     * Update a site for a given server
+     * Update a site for a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function update($id, $siteId, $params)
@@ -52,9 +60,11 @@ class Site
 
     /**
      * Delete a site from a given server
-     * Please keep in mind that this will delete the domain's directory
+     * Please keep in mind that this will delete the domain's directory.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $siteId)
@@ -63,10 +73,12 @@ class Site
     }
 
     /**
-     * This will specify the servers the load balancer should send traffic to
+     * This will specify the servers the load balancer should send traffic to.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function balance($id, $siteId, $params)

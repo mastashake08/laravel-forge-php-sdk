@@ -7,9 +7,11 @@ class MysqlUser
     use InteractsWithAPI;
 
     /**
-     * Create the MySQL User for a given server
+     * Create the MySQL User for a given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -18,8 +20,10 @@ class MysqlUser
     }
 
     /**
-     * Retrieve all the users for a given server
+     * Retrieve all the users for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id)
@@ -28,9 +32,11 @@ class MysqlUser
     }
 
     /**
-     * Get a single user from a given server
+     * Get a single user from a given server.
+     *
      * @param $id
      * @param $userId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id, $userId)
@@ -39,10 +45,12 @@ class MysqlUser
     }
 
     /**
-     * Update the user from a given server
+     * Update the user from a given server.
+     *
      * @param $id
      * @param $userId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function update($id, $userId, $params)
@@ -51,9 +59,11 @@ class MysqlUser
     }
 
     /**
-     * Delete the user for a given server
+     * Delete the user for a given server.
+     *
      * @param $id
      * @param $userId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $userId)

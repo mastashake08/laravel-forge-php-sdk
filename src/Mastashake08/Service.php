@@ -7,8 +7,10 @@ class Service
     use InteractsWithAPI;
 
     /**
-     * Reboot the MySQL instance for a given server
+     * Reboot the MySQL instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function rebootMysql($id)
@@ -17,8 +19,10 @@ class Service
     }
 
     /**
-     * Stop the MySQL instance for a given server
+     * Stop the MySQL instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function stopMysql($id)
@@ -27,8 +31,10 @@ class Service
     }
 
     /**
-     * Reboot the Nginx instance for a given server
+     * Reboot the Nginx instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function rebootNginx($id)
@@ -37,8 +43,10 @@ class Service
     }
 
     /**
-     * Stop the Nginx instance for a given server
+     * Stop the Nginx instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function stopNginx($id)
@@ -47,8 +55,10 @@ class Service
     }
 
     /**
-     * Reboot the Postgres instance for a given server
+     * Reboot the Postgres instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function rebootPostgres($id)
@@ -57,8 +67,10 @@ class Service
     }
 
     /**
-     * Stop the Postgres instance for a given server
+     * Stop the Postgres instance for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function stopPostgres($id)

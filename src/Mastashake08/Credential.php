@@ -8,7 +8,8 @@ class Credential
 
     /**
      * Gets the credentials of the Platforms as a Service
-     * associated with the account
+     * associated with the account.
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all()

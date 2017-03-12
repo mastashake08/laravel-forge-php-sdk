@@ -5,20 +5,24 @@ namespace Mastashake08\Forge;
 class Forge
 {
     /**
-     * This is the your forge api token, you can generate one here
+     * This is the your forge api token, you can generate one here.
+     *
      * @url https://forge.laravel.com/user/profile#/api
+     *
      * @var
      */
     public static $apiKey;
 
     /**
-     * This is the base API URL
+     * This is the base API URL.
+     *
      * @var string
      */
     public static $apiBase = 'https://forge.laravel.com/api/v1/';
 
     /**
-     * Return the api key
+     * Return the api key.
+     *
      * @return string
      */
     public static function getApiKey()
@@ -27,7 +31,8 @@ class Forge
     }
 
     /**
-     * Set the api key
+     * Set the api key.
+     *
      * @param $apiKey
      */
     public static function setApiKey($apiKey)
@@ -36,7 +41,8 @@ class Forge
     }
 
     /**
-     * Get the base URL
+     * Get the base URL.
+     *
      * @return string
      */
     public static function getBaseUrl()

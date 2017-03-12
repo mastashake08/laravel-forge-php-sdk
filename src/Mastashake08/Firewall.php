@@ -7,9 +7,11 @@ class Firewall
     use InteractsWithAPI;
 
     /**
-     * Create a new firewall rule for a given server
+     * Create a new firewall rule for a given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -18,8 +20,10 @@ class Firewall
     }
 
     /**
-     * List all firewall rules for a given server
+     * List all firewall rules for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function list($id)
@@ -28,9 +32,11 @@ class Firewall
     }
 
     /**
-     * Get a single firewall rule for a given server
+     * Get a single firewall rule for a given server.
+     *
      * @param $id
      * @param $ruleId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id, $ruleId)
@@ -39,9 +45,11 @@ class Firewall
     }
 
     /**
-     * Delete a firewall rule for a given server
+     * Delete a firewall rule for a given server.
+     *
      * @param $id
      * @param $ruleId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $ruleId)

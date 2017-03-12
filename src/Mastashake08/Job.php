@@ -7,9 +7,11 @@ class Job
     use InteractsWithAPI;
 
     /**
-     * Create a new Job for a given server
+     * Create a new Job for a given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -18,8 +20,10 @@ class Job
     }
 
     /**
-     * Get all the jobs for a given server
+     * Get all the jobs for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id)
@@ -28,9 +32,11 @@ class Job
     }
 
     /**
-     * Get a single job for a given server
+     * Get a single job for a given server.
+     *
      * @param $id
      * @param $jobId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id, $jobId)
@@ -39,9 +45,11 @@ class Job
     }
 
     /**
-     * Delete a single job for a given server
+     * Delete a single job for a given server.
+     *
      * @param $id
      * @param $jobId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $jobId)

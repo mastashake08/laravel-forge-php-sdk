@@ -7,9 +7,11 @@ class SSH
     use InteractsWithAPI;
 
     /**
-     * Associate a new key for a given server
+     * Associate a new key for a given server.
+     *
      * @param $serverId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($serverId, $params)
@@ -18,8 +20,10 @@ class SSH
     }
 
     /**
-     * Get all the keys for a given server
+     * Get all the keys for a given server.
+     *
      * @param $serverId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($serverId)
@@ -28,9 +32,11 @@ class SSH
     }
 
     /**
-     * Get a single SSH key for a given server
+     * Get a single SSH key for a given server.
+     *
      * @param $serverId
      * @param $keyId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($serverId, $keyId)
@@ -39,9 +45,11 @@ class SSH
     }
 
     /**
-     * Delete an SSH key for a given server
+     * Delete an SSH key for a given server.
+     *
      * @param $serverId
      * @param $keyId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($serverId, $keyId)

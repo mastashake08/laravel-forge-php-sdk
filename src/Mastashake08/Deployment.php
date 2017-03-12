@@ -7,9 +7,11 @@ class Deployment
     use InteractsWithAPI;
 
     /**
-     * Enable quick deployment for a site on a given server
+     * Enable quick deployment for a site on a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function enable($id, $siteId)
@@ -18,9 +20,11 @@ class Deployment
     }
 
     /**
-     * Disable quick deployment for a site on a given server
+     * Disable quick deployment for a site on a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function disable($id, $siteId)
@@ -29,9 +33,11 @@ class Deployment
     }
 
     /**
-     * Get the deployment script of a site for a given server
+     * Get the deployment script of a site for a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getScript($id, $siteId)
@@ -40,9 +46,11 @@ class Deployment
     }
 
     /**
-     * Get the most recent deployment script's log
+     * Get the most recent deployment script's log.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getLog($id, $siteId)
@@ -51,10 +59,12 @@ class Deployment
     }
 
     /**
-     * Update a deployment script for a site on a given server
+     * Update a deployment script for a site on a given server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function update($id, $siteId, $params)
@@ -63,9 +73,11 @@ class Deployment
     }
 
     /**
-     * Deploy using the deployment script for a site on a given server
+     * Deploy using the deployment script for a site on a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function deploy($id, $siteId)
@@ -74,9 +86,11 @@ class Deployment
     }
 
     /**
-     * Reset the deployment status for a site on a given server
+     * Reset the deployment status for a site on a given server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function reset($id, $siteId)
@@ -85,10 +99,12 @@ class Deployment
     }
 
     /**
-     * Obtain a LetsEncrypt certificate
+     * Obtain a LetsEncrypt certificate.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function letsEncrypt($id, $siteId, $params)
@@ -97,10 +113,12 @@ class Deployment
     }
 
     /**
-     * Get the full certificate signing request content
+     * Get the full certificate signing request content.
+     *
      * @param $serverId
      * @param $siteId
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getSigningRequest($serverId, $siteId, $id)
@@ -109,11 +127,11 @@ class Deployment
     }
 
     /**
-     *
      * @param $serverId
      * @param $siteId
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function deleteRequest($serverId, $siteId, $id, $params)

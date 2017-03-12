@@ -4,16 +4,18 @@ namespace Mastashake08\Forge;
 
 use GuzzleHttp\Client;
 
-trait InteractsWithAPI
+trait ApiRequestor
 {
     /**
-     * The client variable use to make requests
+     * The client variable use to make requests.
+     *
      * @var Client
      */
     private $_client;
 
     /**
-     * Initialize the client
+     * Initialize the client.
+     *
      * @return void
      */
     private function init()
@@ -24,10 +26,12 @@ trait InteractsWithAPI
     }
 
     /**
-     * Make the api request
+     * Make the api request.
+     *
      * @param $method
      * @param $url
      * @param array $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function sendRequest($method, $url, $params = [])
@@ -38,9 +42,9 @@ trait InteractsWithAPI
 
         $res = $this->_client->request($method, $url, [
             'headers' => [
-                'Authorization' => 'Bearer ' . Forge::getApiKey(),
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer '.Forge::getApiKey(),
+                'Accept'        => 'application/json',
+                'Content-Type'  => 'application/json',
             ],
             'json' => $params,
         ]);
@@ -48,4 +52,3 @@ trait InteractsWithAPI
         return $res->getBody();
     }
 }
-

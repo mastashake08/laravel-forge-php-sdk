@@ -7,9 +7,11 @@ class Daemon
     use InteractsWithAPI;
 
     /**
-     * Create a daemon for the given server
+     * Create a daemon for the given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -19,7 +21,9 @@ class Daemon
 
     /**
      * Get all daemons for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id)
@@ -28,9 +32,11 @@ class Daemon
     }
 
     /**
-     * Delete a daemon for a given server
+     * Delete a daemon for a given server.
+     *
      * @param $serverId
      * @param $daemonId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($serverId, $daemonId)
@@ -39,9 +45,11 @@ class Daemon
     }
 
     /**
-     * Restart a daemon for a given server
+     * Restart a daemon for a given server.
+     *
      * @param $serverId
      * @param $daemonId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function restart($serverId, $daemonId)

@@ -7,10 +7,12 @@ class Worker
     use InteractsWithAPI;
 
     /**
-     * Create a new worker for a site on a given server
+     * Create a new worker for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($serverId, $siteId, $params)
@@ -19,9 +21,11 @@ class Worker
     }
 
     /**
-     * Get all works for a site on a given server
+     * Get all works for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($serverId, $siteId)
@@ -30,10 +34,12 @@ class Worker
     }
 
     /**
-     * Get a single worker for a site on a given server
+     * Get a single worker for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $workerId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($serverId, $siteId, $workerId)
@@ -42,10 +48,12 @@ class Worker
     }
 
     /**
-     * Delete a worker for a site on a given server
+     * Delete a worker for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $workerId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($serverId, $siteId, $workerId)
@@ -54,10 +62,12 @@ class Worker
     }
 
     /**
-     * Restart a worker for a site on a given server
+     * Restart a worker for a site on a given server.
+     *
      * @param $serverId
      * @param $siteId
      * @param $workerId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function restart($serverId, $siteId, $workerId)

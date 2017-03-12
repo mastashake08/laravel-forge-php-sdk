@@ -7,9 +7,11 @@ class Mysql
     use InteractsWithAPI;
 
     /**
-     * Create a new MySQL database for a given server
+     * Create a new MySQL database for a given server.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($id, $params)
@@ -18,8 +20,10 @@ class Mysql
     }
 
     /**
-     * Get all MySQL databases for a given server
+     * Get all MySQL databases for a given server.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all($id)
@@ -28,9 +32,11 @@ class Mysql
     }
 
     /**
-     * Get a single MySQL database for a given server
+     * Get a single MySQL database for a given server.
+     *
      * @param $id
      * @param $databaseId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id, $databaseId)
@@ -39,9 +45,11 @@ class Mysql
     }
 
     /**
-     * Delete a single MySQL database for a given server
+     * Delete a single MySQL database for a given server.
+     *
      * @param $id
      * @param $databaseId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id, $databaseId)

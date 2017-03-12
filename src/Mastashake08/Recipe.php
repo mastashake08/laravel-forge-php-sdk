@@ -7,8 +7,10 @@ class Recipe
     use InteractsWithAPI;
 
     /**
-     * Create a new recipe
+     * Create a new recipe.
+     *
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function create($params)
@@ -17,7 +19,8 @@ class Recipe
     }
 
     /**
-     * Get all recipes
+     * Get all recipes.
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function all()
@@ -26,8 +29,10 @@ class Recipe
     }
 
     /**
-     * Get just one recipe
+     * Get just one recipe.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function retrieve($id)
@@ -36,9 +41,11 @@ class Recipe
     }
 
     /**
-     * Update a recipe
+     * Update a recipe.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function update($id, $params)
@@ -47,8 +54,10 @@ class Recipe
     }
 
     /**
-     * Delete a recipe
+     * Delete a recipe.
+     *
      * @param $id
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function delete($id)
@@ -57,9 +66,11 @@ class Recipe
     }
 
     /**
-     * Run a recipe
+     * Run a recipe.
+     *
      * @param $id
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function run($id, $params)

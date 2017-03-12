@@ -7,10 +7,12 @@ class Wordpress
     use InteractsWithAPI;
 
     /**
-     * Install a new instance of WordPress
+     * Install a new instance of WordPress.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function install($id, $siteId, $params)
@@ -19,9 +21,11 @@ class Wordpress
     }
 
     /**
-     * Uninstall an instance of WordPress
+     * Uninstall an instance of WordPress.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function uninstall($id, $siteId)

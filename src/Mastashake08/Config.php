@@ -7,9 +7,11 @@ class Config
     use InteractsWithAPI;
 
     /**
-     * Get the Nginx config for a given site on a server
+     * Get the Nginx config for a given site on a server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getNginx($id, $siteId)
@@ -18,10 +20,12 @@ class Config
     }
 
     /**
-     * Update an Nginx config for a given site on a server
+     * Update an Nginx config for a given site on a server.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function updateNginx($id, $siteId, $params)
@@ -30,9 +34,11 @@ class Config
     }
 
     /**
-     * Get the Env config for a given site on a server
+     * Get the Env config for a given site on a server.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function getEnv($id, $siteId)
@@ -41,10 +47,12 @@ class Config
     }
 
     /**
-     * Update the Env file for a given site on a serve
+     * Update the Env file for a given site on a serve.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function updateEnv($id, $siteId, $params)

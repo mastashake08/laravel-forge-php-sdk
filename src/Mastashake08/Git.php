@@ -7,10 +7,12 @@ class Git
     use InteractsWithAPI;
 
     /**
-     * Install a new git project
+     * Install a new git project.
+     *
      * @param $id
      * @param $siteId
      * @param $params
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function install($id, $siteId, $params)
@@ -19,9 +21,11 @@ class Git
     }
 
     /**
-     * Remove a git project
+     * Remove a git project.
+     *
      * @param $id
      * @param $siteId
+     *
      * @return \Psr\Http\Message\StreamInterface
      */
     public function uninstall($id, $siteId)
