@@ -21,7 +21,7 @@ class Certificate
     }
 
     /**
-     * Get a single SSL Cert for a site on a given server
+     * Get a single SSL Cert for a site on a given server.
      *
      * @param $id
      * @param $siteId
