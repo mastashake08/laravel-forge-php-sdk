@@ -6,35 +6,64 @@ class Recipe
 {
     use InteractsWithAPI;
 
-    public $_url = 'https://forge.laravel.com/api/v1/recipes';
-
+    /**
+     * Create a new recipe
+     * @param $params
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function create($params)
     {
-        return $this->sendRequest('POST', self::$_url, $params);
+        return $this->sendRequest('POST', '/recipes', $params);
     }
 
+    /**
+     * Get all recipes
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function all()
     {
-        return $this->sendRequest('GET', self::$_url);
+        return $this->sendRequest('GET', '/recipes');
     }
 
+    /**
+     * Get just one recipe
+     * @param $id
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function retrieve($id)
     {
-        return $this->sendRequest('GET', self::$_url."/{$id}");
+        return $this->sendRequest('GET', "/recipes/{$id}");
     }
 
+    /**
+     * Update a recipe
+     * @param $id
+     * @param $params
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function update($id, $params)
     {
-        return $this->sendRequest('PUT', self::$_url."/{$id}", $params);
+        return $this->sendRequest('PUT', "/recipes/{$id}", $params);
     }
 
+    /**
+     * Delete a recipe
+     * @param $id
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function delete($id)
     {
-        return $this->sendRequest('DELETE', self::$_url."/{$id}");
+        return $this->sendRequest('DELETE', "/recipes/{$id}");
     }
 
-    public function run($id)
+    /**
+     * Run a recipe
+     * @param $id
+     * @param $params
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function run($id, $params)
     {
-        return $this->sendRequest('POST', self::$_url."/{$id}/run");
+        return $this->sendRequest('POST', "/recipes/{$id}/run", $params);
     }
 }

@@ -6,28 +6,41 @@ use GuzzleHttp\Client;
 
 trait InteractsWithAPI
 {
-    private static $_client;
+    /**
+     * The client variable use to make requests
+     * @var Client
+     */
+    private $_client;
 
-    private static function init()
+    /**
+     * Initialize the client
+     * @return void
+     */
+    private function init()
     {
-        self::$_client = new Client([
+        $this->_client = new Client([
             'base_url' => Forge::getBaseUrl(),
         ]);
     }
 
-    public static function sendRequest($method, $url, $params = [])
+    /**
+     * Make the api request
+     * @param $method
+     * @param $url
+     * @param array $params
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function sendRequest($method, $url, $params = [])
     {
-        if (self::$_client == null) {
-            self::init();
+        if ($this->_client == null) {
+            $this->init();
         }
-        foreach ($params as $key=>$value) {
-            echo "{$key} => {$value}\n";
-        }
-        $res = self::$_client->request($method, $url, [
+
+        $res = $this->_client->request($method, $url, [
             'headers' => [
-                'Authorization' => 'Bearer '.Forge::getApiKey(),
-                'Accept'        => 'application/json',
-                'Content-Type'  => 'application/json', 
+                'Authorization' => 'Bearer ' . Forge::getApiKey(),
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
             ],
             'json' => $params,
         ]);
@@ -35,3 +48,4 @@ trait InteractsWithAPI
         return $res->getBody();
     }
 }
+

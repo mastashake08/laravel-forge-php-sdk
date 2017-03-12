@@ -6,10 +6,13 @@ class Credential
 {
     use InteractsWithAPI;
 
-    public $_url = 'https://forge.laravel.com/api/v1/credentials';
-
+    /**
+     * Gets the credentials of the Platforms as a Service
+     * associated with the account
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function all()
     {
-        return $this->sendRequest('GET', self::$_url);
+        return $this->sendRequest('GET', '/credentials');
     }
 }
