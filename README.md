@@ -18,7 +18,7 @@ Follow the conventions in the [API documentation](https://forge.laravel.com/api-
 use Mastashake08\Forge\Server;
 use Mastashake08\Forge\Forge;
 Forge::setApiKey($apiKey);
-echo Server::all(); // shows all servers in JSON Format
+echo new Server()->all(); // shows all servers in JSON Format
 ```
 ##Objects
 The following objects are available via the SDK
