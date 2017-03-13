@@ -1,22 +1,59 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Mysql{
-public static function create($id,$params){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql",$params);
-}
 
-public static function all($id){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/mysql");
-}
+class Mysql
+{
+    use InteractsWithAPI;
 
-public static function retrieve($id, $databaseId){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql/{$databaseId}");
-}
+    /**
+     * Create a new MySQL database for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/mysql", $params);
+    }
 
-public static function delete($id, $databaseId){
-  return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/mysql/{$databaseId}");
+    /**
+     * Get all MySQL databases for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($id)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/mysql");
+    }
+
+    /**
+     * Get a single MySQL database for a given server.
+     *
+     * @param $id
+     * @param $databaseId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $databaseId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/mysql/{$databaseId}");
+    }
+
+    /**
+     * Delete a single MySQL database for a given server.
+     *
+     * @param $id
+     * @param $databaseId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id, $databaseId)
+    {
+        return $this->sendRequest('DELETE', "/servers/{$id}/mysql/{$databaseId}");
+    }
 }
-}
-?>

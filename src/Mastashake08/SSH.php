@@ -1,5 +1,7 @@
 <?php
+
 namespace Mastashake08\Forge;
+
 use Mastashake08\Forge\Forge;
 use Mastashake08\Forge\ApiRequestor;
 
@@ -22,3 +24,4 @@ class SSH{
 }
 
 ?>
+

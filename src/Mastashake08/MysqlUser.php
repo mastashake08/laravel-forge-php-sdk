@@ -1,26 +1,73 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class MysqlUser{
-public static function create($id,$params){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql-users",$params);
-}
 
-public static function all($id){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/mysql-users");
-}
+class MysqlUser
+{
+    use InteractsWithAPI;
 
-public static function retrieve($id, $userId){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}");
-}
+    /**
+     * Create the MySQL User for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/mysql-users", $params);
+    }
 
-public static function update($id, $userId,$params){
-  return ApiRequestor::sendRequest('PUT',Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}",$params);
-}
+    /**
+     * Retrieve all the users for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($id)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/mysql-users");
+    }
 
-public static function delete($id, $userId){
-  return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/mysql-users/{$userId}");
+    /**
+     * Get a single user from a given server.
+     *
+     * @param $id
+     * @param $userId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $userId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/mysql-users/{$userId}");
+    }
+
+    /**
+     * Update the user from a given server.
+     *
+     * @param $id
+     * @param $userId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function update($id, $userId, $params)
+    {
+        return $this->sendRequest('PUT', "/servers/{$id}/mysql-users/{$userId}", $params);
+    }
+
+    /**
+     * Delete the user for a given server.
+     *
+     * @param $id
+     * @param $userId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id, $userId)
+    {
+        return $this->sendRequest('DELETE', "/servers/{$id}/mysql-users/{$userId}");
+    }
 }
-}
-?>
