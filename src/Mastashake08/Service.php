@@ -1,32 +1,80 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\ApiRequestor;
-use Mastashake08\Forge\Forge;
-class Service{
 
-  public static function rebootMysql($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql/reboot");
-  }
+class Service
+{
+    use InteractsWithAPI;
 
-  public static function stopMysql($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/mysql/stop");
-  }
+    /**
+     * Reboot the MySQL instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function rebootMysql($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/mysql/reboot");
+    }
 
-  public static function rebootNginx($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/nginx/reboot");
-  }
+    /**
+     * Stop the MySQL instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function stopMysql($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/mysql/stop");
+    }
 
-  public static function stopNginx($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/nginx/stop");
-  }
+    /**
+     * Reboot the Nginx instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function rebootNginx($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/nginx/reboot");
+    }
 
-  public static function rebootPostgres($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/postgres/reboot");
-  }
+    /**
+     * Stop the Nginx instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function stopNginx($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/nginx/stop");
+    }
 
-  public static function stopPostgres($id){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/postgres/stop");
-  }
+    /**
+     * Reboot the Postgres instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function rebootPostgres($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/postgres/reboot");
+    }
+
+    /**
+     * Stop the Postgres instance for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function stopPostgres($id)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/postgres/stop");
+    }
 }
-
- ?>

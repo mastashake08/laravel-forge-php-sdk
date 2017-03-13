@@ -1,14 +1,19 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Credential{
-  public static $_url = "https://forge.laravel.com/api/v1/credentials";
 
+class Credential
+{
+    use InteractsWithAPI;
 
-public static function all(){
-  return ApiRequestor::sendRequest('GET',self::$_url);
+    /**
+     * Gets the credentials of the Platforms as a Service
+     * associated with the account.
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all()
+    {
+        return $this->sendRequest('GET', '/credentials');
+    }
 }
-
-}
-?>

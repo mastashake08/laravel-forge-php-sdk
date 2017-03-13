@@ -1,16 +1,35 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Git{
-public static function install($id,$siteId,$params){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/git",$params);
-}
 
-public static function uninstall($id,$siteId){
-  return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/git");
-}
+class Git
+{
+    use InteractsWithAPI;
 
+    /**
+     * Install a new git project.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function install($id, $siteId, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/git", $params);
+    }
 
+    /**
+     * Remove a git project.
+     *
+     * @param $id
+     * @param $siteId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function uninstall($id, $siteId)
+    {
+        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/git");
+    }
 }
-?>

@@ -1,39 +1,120 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Certificate{
-public static function create($id,$siteId,$params){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates",$params);
-}
 
-public static function all($id,$siteId){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates");
-}
+class Certificate
+{
+    use InteractsWithAPI;
 
-public static function retrieve($id, $siteId){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates");
-}
+    /**
+     * Create a SSL Cert for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $siteId, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/certificates", $params);
+    }
 
-public static function update($id, $siteId,$params){
-  return ApiRequestor::sendRequest('PUT',Forge::getBaseUrl()."/{$id}/sites/{$siteId}",$params);
-}
+    /**
+     * Get a single SSL Cert for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $certId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $siteId, $certId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/certificates/{$certId}");
+    }
 
-public static function delete($id, $siteId,$certId){
-  return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/certificates/{$certId}");
-}
+    /**
+     * Get all SSL Certs for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($id, $siteId)
+    {
+        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/certificates");
+    }
 
+    /**
+     * Update an SLL Cert for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function update($id, $siteId, $params)
+    {
+        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}", $params);
+    }
 
-public static function letsEncrypt($id, $siteId){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/sites/{$siteId}/letsencrypt",$params);
-}
+    /**
+     * Delete an SSL Cert for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $certId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id, $siteId, $certId)
+    {
+        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/certificates/{$certId}");
+    }
 
-public static function getSigningRequest($serverId,$siteId,$id){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
-}
+    /**
+     * Obtain an SSL Cert for a site on a given server.
+     *
+     * @param $id
+     * @param $siteId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function letsEncrypt($id, $siteId, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/letsencrypt", $params);
+    }
 
-public static function deleteRequest($serverId,$siteId,$id){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$serverId}/sites/{$siteId}/certificates/{$id}/install",$params);
+    /**
+     * Get a signing request for a site on a given server.
+     *
+     * @param $serverId
+     * @param $siteId
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function getSigningRequest($serverId, $siteId, $id)
+    {
+        return $this->sendRequest('GET', "/servers/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
+    }
+
+    /**
+     * Delete an SSL Cert for a site on a given server.
+     *
+     * @param $serverId
+     * @param $siteId
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function deleteRequest($serverId, $siteId, $id, $params)
+    {
+        return $this->sendRequest('POST', "/servers/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
+    }
 }
-}
-?>
