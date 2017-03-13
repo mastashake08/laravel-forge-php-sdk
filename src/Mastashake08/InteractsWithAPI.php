@@ -21,7 +21,7 @@ trait InteractsWithAPI
     private function init()
     {
         $this->_client = new Client([
-            'base_url' => Forge::getBaseUrl(),
+            'base_uri' => Forge::getBaseUrl(),
         ]);
     }
 
