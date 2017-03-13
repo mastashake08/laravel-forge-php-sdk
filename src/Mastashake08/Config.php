@@ -16,7 +16,7 @@ class Config
      */
     public function getNginx($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/nginx");
+        return $this->sendRequest('GET', "servers/{$id}/sites/{$siteId}/nginx");
     }
 
     /**
@@ -30,7 +30,7 @@ class Config
      */
     public function updateNginx($id, $siteId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}/nginx", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/sites/{$siteId}/nginx", $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class Config
      */
     public function getEnv($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/env");
+        return $this->sendRequest('GET', "servers/{$id}/sites/{$siteId}/env");
     }
 
     /**
@@ -57,6 +57,6 @@ class Config
      */
     public function updateEnv($id, $siteId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}/env", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/sites/{$siteId}/env", $params);
     }
 }

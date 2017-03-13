@@ -17,7 +17,7 @@ class Certificate
      */
     public function create($id, $siteId, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/certificates", $params);
+        return $this->sendRequest('POST', "servers/{$id}/sites/{$siteId}/certificates", $params);
     }
 
     /**
@@ -31,7 +31,7 @@ class Certificate
      */
     public function retrieve($id, $siteId, $certId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/certificates/{$certId}");
+        return $this->sendRequest('GET', "servers/{$id}/sites/{$siteId}/certificates/{$certId}");
     }
 
     /**
@@ -44,7 +44,7 @@ class Certificate
      */
     public function all($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/certificates");
+        return $this->sendRequest('GET', "servers/{$id}/sites/{$siteId}/certificates");
     }
 
     /**
@@ -58,7 +58,7 @@ class Certificate
      */
     public function update($id, $siteId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/sites/{$siteId}", $params);
     }
 
     /**
@@ -72,7 +72,7 @@ class Certificate
      */
     public function delete($id, $siteId, $certId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/certificates/{$certId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/sites/{$siteId}/certificates/{$certId}");
     }
 
     /**
@@ -86,7 +86,7 @@ class Certificate
      */
     public function letsEncrypt($id, $siteId, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/letsencrypt", $params);
+        return $this->sendRequest('POST', "servers/{$id}/sites/{$siteId}/letsencrypt", $params);
     }
 
     /**
@@ -100,7 +100,7 @@ class Certificate
      */
     public function getSigningRequest($serverId, $siteId, $id)
     {
-        return $this->sendRequest('GET', "/servers/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
+        return $this->sendRequest('GET', "servers/{$serverId}/sites/{$siteId}/certificates/{$id}/csr");
     }
 
     /**
@@ -115,6 +115,6 @@ class Certificate
      */
     public function deleteRequest($serverId, $siteId, $id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
+        return $this->sendRequest('POST', "servers/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
     }
 }

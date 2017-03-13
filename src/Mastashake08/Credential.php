@@ -14,6 +14,6 @@ class Credential
      */
     public function all()
     {
-        return $this->sendRequest('GET', '/credentials');
+        return $this->sendRequest('GET', 'credentials');
     }
 }

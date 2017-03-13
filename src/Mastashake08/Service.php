@@ -15,7 +15,7 @@ class Service
      */
     public function rebootMysql($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql/reboot");
+        return $this->sendRequest('POST', "servers/{$id}/mysql/reboot");
     }
 
     /**
@@ -27,7 +27,7 @@ class Service
      */
     public function stopMysql($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql/stop");
+        return $this->sendRequest('POST', "servers/{$id}/mysql/stop");
     }
 
     /**
@@ -39,7 +39,7 @@ class Service
      */
     public function rebootNginx($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/nginx/reboot");
+        return $this->sendRequest('POST', "servers/{$id}/nginx/reboot");
     }
 
     /**
@@ -51,7 +51,7 @@ class Service
      */
     public function stopNginx($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/nginx/stop");
+        return $this->sendRequest('POST', "servers/{$id}/nginx/stop");
     }
 
     /**
@@ -63,7 +63,7 @@ class Service
      */
     public function rebootPostgres($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/postgres/reboot");
+        return $this->sendRequest('POST', "servers/{$id}/postgres/reboot");
     }
 
     /**
@@ -75,6 +75,6 @@ class Service
      */
     public function stopPostgres($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/postgres/stop");
+        return $this->sendRequest('POST', "servers/{$id}/postgres/stop");
     }
 }

@@ -16,7 +16,7 @@ class Deployment
      */
     public function enable($id, $siteId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/deployment");
+        return $this->sendRequest('POST', "servers/{$id}sites/{$siteId}/deployment");
     }
 
     /**
@@ -29,7 +29,7 @@ class Deployment
      */
     public function disable($id, $siteId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/deployment");
+        return $this->sendRequest('DELETE', "servers/{$id}sites/{$siteId}/deployment");
     }
 
     /**
@@ -42,7 +42,7 @@ class Deployment
      */
     public function getScript($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/deployment/script");
+        return $this->sendRequest('GET', "servers/{$id}sites/{$siteId}/deploymentscript");
     }
 
     /**
@@ -55,7 +55,7 @@ class Deployment
      */
     public function getLog($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}/deployment/log");
+        return $this->sendRequest('GET', "servers/{$id}sites/{$siteId}/deployment/log");
     }
 
     /**
@@ -69,7 +69,7 @@ class Deployment
      */
     public function update($id, $siteId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}/deployment/script", $params);
+        return $this->sendRequest('PUT', "servers/{$id}sites/{$siteId}/deploymentscript", $params);
     }
 
     /**
@@ -82,7 +82,7 @@ class Deployment
      */
     public function deploy($id, $siteId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/deployment/deploy");
+        return $this->sendRequest('POST', "servers/{$id}sites/{$siteId}/deployment/deploy");
     }
 
     /**
@@ -95,7 +95,7 @@ class Deployment
      */
     public function reset($id, $siteId)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/deployment/reset");
+        return $this->sendRequest('POST', "servers/{$id}sites/{$siteId}/deployment/reset");
     }
 
     /**
@@ -108,6 +108,6 @@ class Deployment
      */
     public function deleteRequest($serverId, $siteId, $id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$serverId}/sites/{$siteId}/deployment/{$id}/install", $params);
+        return $this->sendRequest('POST', "servers/{$serverId}sites/{$siteId}/deployment/{$id}/install", $params);
     }
 }

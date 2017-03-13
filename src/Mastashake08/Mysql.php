@@ -16,7 +16,7 @@ class Mysql
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql", $params);
+        return $this->sendRequest('POST', "servers/{$id}/mysql", $params);
     }
 
     /**
@@ -28,7 +28,7 @@ class Mysql
      */
     public function all($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/mysql");
+        return $this->sendRequest('GET', "servers/{$id}/mysql");
     }
 
     /**
@@ -41,7 +41,7 @@ class Mysql
      */
     public function retrieve($id, $databaseId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/mysql/{$databaseId}");
+        return $this->sendRequest('GET', "servers/{$id}/mysql/{$databaseId}");
     }
 
     /**
@@ -54,6 +54,6 @@ class Mysql
      */
     public function delete($id, $databaseId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/mysql/{$databaseId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/mysql/{$databaseId}");
     }
 }

@@ -16,7 +16,7 @@ class Site
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites", $params);
+        return $this->sendRequest('POST', "servers/{$id}/sites", $params);
     }
 
     /**
@@ -28,7 +28,7 @@ class Site
      */
     public function all($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites");
+        return $this->sendRequest('GET', "servers/{$id}/sites");
     }
 
     /**
@@ -41,7 +41,7 @@ class Site
      */
     public function retrieve($id, $siteId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/sites/{$siteId}");
+        return $this->sendRequest('GET', "servers/{$id}/sites/{$siteId}");
     }
 
     /**
@@ -55,7 +55,7 @@ class Site
      */
     public function update($id, $siteId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/sites/{$siteId}", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/sites/{$siteId}", $params);
     }
 
     /**
@@ -69,7 +69,7 @@ class Site
      */
     public function delete($id, $siteId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/sites/{$siteId}");
     }
 
     /**
@@ -83,6 +83,6 @@ class Site
      */
     public function balance($id, $siteId, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/balancing", $params);
+        return $this->sendRequest('POST', "servers/{$id}/sites/{$siteId}/balancing", $params);
     }
 }

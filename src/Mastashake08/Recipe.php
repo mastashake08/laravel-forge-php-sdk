@@ -15,7 +15,7 @@ class Recipe
      */
     public function create($params)
     {
-        return $this->sendRequest('POST', '/recipes', $params);
+        return $this->sendRequest('POST', 'recipes', $params);
     }
 
     /**
@@ -25,7 +25,7 @@ class Recipe
      */
     public function all()
     {
-        return $this->sendRequest('GET', '/recipes');
+        return $this->sendRequest('GET', 'recipes');
     }
 
     /**
@@ -37,7 +37,7 @@ class Recipe
      */
     public function retrieve($id)
     {
-        return $this->sendRequest('GET', "/recipes/{$id}");
+        return $this->sendRequest('GET', "recipes/{$id}");
     }
 
     /**
@@ -50,7 +50,7 @@ class Recipe
      */
     public function update($id, $params)
     {
-        return $this->sendRequest('PUT', "/recipes/{$id}", $params);
+        return $this->sendRequest('PUT', "recipes/{$id}", $params);
     }
 
     /**
@@ -62,7 +62,7 @@ class Recipe
      */
     public function delete($id)
     {
-        return $this->sendRequest('DELETE', "/recipes/{$id}");
+        return $this->sendRequest('DELETE', "recipes/{$id}");
     }
 
     /**
@@ -75,6 +75,6 @@ class Recipe
      */
     public function run($id, $params)
     {
-        return $this->sendRequest('POST', "/recipes/{$id}/run", $params);
+        return $this->sendRequest('POST', "recipes/{$id}run", $params);
     }
 }

@@ -16,7 +16,7 @@ class MysqlUser
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/mysql-users", $params);
+        return $this->sendRequest('POST', "servers/{$id}/mysql-users", $params);
     }
 
     /**
@@ -28,7 +28,7 @@ class MysqlUser
      */
     public function all($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/mysql-users");
+        return $this->sendRequest('GET', "servers/{$id}/mysql-users");
     }
 
     /**
@@ -41,7 +41,7 @@ class MysqlUser
      */
     public function retrieve($id, $userId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/mysql-users/{$userId}");
+        return $this->sendRequest('GET', "servers/{$id}/mysql-users/{$userId}");
     }
 
     /**
@@ -55,7 +55,7 @@ class MysqlUser
      */
     public function update($id, $userId, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/mysql-users/{$userId}", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/mysql-users/{$userId}", $params);
     }
 
     /**
@@ -68,6 +68,6 @@ class MysqlUser
      */
     public function delete($id, $userId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/mysql-users/{$userId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/mysql-users/{$userId}");
     }
 }

@@ -16,7 +16,7 @@ class Job
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/jobs", $params);
+        return $this->sendRequest('POST', "servers/{$id}/jobs", $params);
     }
 
     /**
@@ -28,7 +28,7 @@ class Job
      */
     public function all($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/jobs");
+        return $this->sendRequest('GET', "servers/{$id}/jobs");
     }
 
     /**
@@ -41,7 +41,7 @@ class Job
      */
     public function retrieve($id, $jobId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/jobs/{$jobId}");
+        return $this->sendRequest('GET', "servers/{$id}/jobs/{$jobId}");
     }
 
     /**
@@ -54,6 +54,6 @@ class Job
      */
     public function delete($id, $jobId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/jobs/{$jobId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/jobs/{$jobId}");
     }
 }

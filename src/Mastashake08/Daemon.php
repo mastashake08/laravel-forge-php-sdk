@@ -16,7 +16,7 @@ class Daemon
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/daemons", $params);
+        return $this->sendRequest('POST', "servers/{$id}/daemons", $params);
     }
 
     /**
@@ -29,7 +29,7 @@ class Daemon
      */
     public function retrieve($id, $params, $daemonId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/daemons/{$daemonId}", $params);
+        return $this->sendRequest('GET', "servers/{$id}/daemons/{$daemonId}", $params);
     }
 
     /**
@@ -41,7 +41,7 @@ class Daemon
      */
     public function all($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/daemons");
+        return $this->sendRequest('GET', "servers/{$id}/daemons");
     }
 
     /**
@@ -54,7 +54,7 @@ class Daemon
      */
     public function delete($serverId, $daemonId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$serverId}/daemons/{$daemonId}");
+        return $this->sendRequest('DELETE', "servers/{$serverId}/daemons/{$daemonId}");
     }
 
     /**

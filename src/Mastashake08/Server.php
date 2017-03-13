@@ -13,7 +13,7 @@ class Server
      */
     public function all()
     {
-        return $this->sendRequest('GET', '/servers');
+        return $this->sendRequest('GET', 'servers');
     }
 
     /**
@@ -25,7 +25,7 @@ class Server
      */
     public function retrieve($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}");
+        return $this->sendRequest('GET', "servers/{$id}");
     }
 
     /**
@@ -37,7 +37,7 @@ class Server
      */
     public function create($params)
     {
-        return $this->sendRequest('POST', '/servers', $params);
+        return $this->sendRequest('POST', 'servers', $params);
     }
 
     /**
@@ -50,7 +50,7 @@ class Server
      */
     public function update($id, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}", $params);
+        return $this->sendRequest('PUT', "servers/{$id}", $params);
     }
 
     /**
@@ -63,7 +63,7 @@ class Server
      */
     public function updatePassword($id, $params)
     {
-        return $this->sendRequest('PUT', "/servers/{$id}/database-password", $params);
+        return $this->sendRequest('PUT', "servers/{$id}/database-password", $params);
     }
 
     /**
@@ -75,7 +75,7 @@ class Server
      */
     public function delete($id)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}");
+        return $this->sendRequest('DELETE', "servers/{$id}");
     }
 
     /**
@@ -87,7 +87,7 @@ class Server
      */
     public function rebootServer($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/reboot");
+        return $this->sendRequest('POST', "servers/{$id}/reboot");
     }
 
     /**
@@ -99,7 +99,7 @@ class Server
      */
     public function revoke($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/revoke");
+        return $this->sendRequest('POST', "servers/{$id}/revoke");
     }
 
     /**
@@ -111,7 +111,7 @@ class Server
      */
     public function reconnect($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/reconnect");
+        return $this->sendRequest('POST', "servers/{$id}/reconnect");
     }
 
     /**
@@ -123,6 +123,6 @@ class Server
      */
     public function reactivate($id)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/reactivate");
+        return $this->sendRequest('POST', "servers/{$id}/reactivate");
     }
 }

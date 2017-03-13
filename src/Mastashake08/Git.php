@@ -17,7 +17,7 @@ class Git
      */
     public function install($id, $siteId, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/sites/{$siteId}/git", $params);
+        return $this->sendRequest('POST', "servers/{$id}sites/{$siteId}/git", $params);
     }
 
     /**
@@ -30,6 +30,6 @@ class Git
      */
     public function uninstall($id, $siteId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/sites/{$siteId}/git");
+        return $this->sendRequest('DELETE', "servers/{$id}sites/{$siteId}/git");
     }
 }

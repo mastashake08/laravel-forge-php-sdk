@@ -16,7 +16,7 @@ class Firewall
      */
     public function create($id, $params)
     {
-        return $this->sendRequest('POST', "/servers/{$id}/firewall-rules", $params);
+        return $this->sendRequest('POST', "servers/{$id}/firewall-rules", $params);
     }
 
     /**
@@ -28,7 +28,7 @@ class Firewall
      */
     public function list($id)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/firewall-rules");
+        return $this->sendRequest('GET', "servers/{$id}/firewall-rules");
     }
 
     /**
@@ -41,7 +41,7 @@ class Firewall
      */
     public function retrieve($id, $ruleId)
     {
-        return $this->sendRequest('GET', "/servers/{$id}/firewall-rules/{$ruleId}");
+        return $this->sendRequest('GET', "servers/{$id}/firewall-rules/{$ruleId}");
     }
 
     /**
@@ -54,6 +54,6 @@ class Firewall
      */
     public function delete($id, $ruleId)
     {
-        return $this->sendRequest('DELETE', "/servers/{$id}/firewall-rules/{$ruleId}");
+        return $this->sendRequest('DELETE', "servers/{$id}/firewall-rules/{$ruleId}");
     }
 }
