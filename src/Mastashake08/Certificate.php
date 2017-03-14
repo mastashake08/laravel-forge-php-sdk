@@ -104,7 +104,7 @@ class Certificate
     }
 
     /**
-     * Delete an SSL Cert for a site on a given server.
+     * Install an SSL Cert for a site on a given server.
      *
      * @param $serverId
      * @param $siteId
@@ -113,8 +113,22 @@ class Certificate
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function deleteRequest($serverId, $siteId, $id, $params)
+    public function install($serverId, $siteId, $id, $params)
     {
         return $this->sendRequest('POST', "servers/{$serverId}/sites/{$siteId}/certificates/{$id}/install", $params);
+    }
+
+    /**
+     * Activate an SSL Cert for a site on a given server.
+     *
+     * @param $serverId
+     * @param $siteId
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function activate($serverId, $siteId, $id)
+    {
+        return $this->sendRequest('POST', "servers/{$serverId}/sites/{$siteId}/certificates/{$id}/activate");
     }
 }

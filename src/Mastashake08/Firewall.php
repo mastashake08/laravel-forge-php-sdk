@@ -26,7 +26,7 @@ class Firewall
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function list($id)
+    public function all($id)
     {
         return $this->sendRequest('GET', "servers/{$id}/firewall-rules");
     }
