@@ -1,22 +1,59 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Job{
-public static function create($id,$params){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/jobs",$params);
-}
 
-public static function all($id){
-  return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/jobs");
-}
+class Job
+{
+    use InteractsWithAPI;
 
-public static function retrieve($id, $jobId){
-  return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/jobs/{$jobId}");
-}
+    /**
+     * Create a new Job for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $params)
+    {
+        return $this->sendRequest('POST', "servers/{$id}/jobs", $params);
+    }
 
-public static function delete($id, $jobId){
-  return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/jobs/{$jobId}");
+    /**
+     * Get all the jobs for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($id)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/jobs");
+    }
+
+    /**
+     * Get a single job for a given server.
+     *
+     * @param $id
+     * @param $jobId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $jobId)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/jobs/{$jobId}");
+    }
+
+    /**
+     * Delete a single job for a given server.
+     *
+     * @param $id
+     * @param $jobId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id, $jobId)
+    {
+        return $this->sendRequest('DELETE', "servers/{$id}/jobs/{$jobId}");
+    }
 }
-}
-?>

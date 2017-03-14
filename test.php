@@ -1,11 +1,11 @@
 <?php
+
 namespace Mastashake08\Forge;
-require __DIR__ . '/vendor/autoload.php';
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\Server;
-use Mastashake08\Forge\Credential;
-use Mastashake08\Forge\Site;
-use Mastashake08\Forge\Wordpress;
+
+require __DIR__.'/vendor/autoload.php';
+$apiKey = $argv[1];
 Forge::setApiKey($apiKey);
-echo Server::all();
-?>
+echo Forge::getApiKey();
+
+$server = new Server();
+echo $server->all();

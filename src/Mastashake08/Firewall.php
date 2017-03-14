@@ -1,23 +1,59 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\ApiRequestor;
-use Mastashake08\Forge\Forge;
-class Firewall{
 
-  public static function create($id,$params){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/firewall-rules",$params);
-  }
+class Firewall
+{
+    use InteractsWithAPI;
 
-  public static function list($id){
-    return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/firewall-rules");
-  }
+    /**
+     * Create a new firewall rule for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $params)
+    {
+        return $this->sendRequest('POST', "servers/{$id}/firewall-rules", $params);
+    }
 
-  public static function retrieve($id,$ruleId){
-    return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/firewall-rules/{$ruleId}");
-  }
+    /**
+     * List all firewall rules for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function list($id)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/firewall-rules");
+    }
 
-  public static function delete($id,$ruleId){
-    return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$id}/firewall-rules/{$ruleId}");
-  }
+    /**
+     * Get a single firewall rule for a given server.
+     *
+     * @param $id
+     * @param $ruleId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $ruleId)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/firewall-rules/{$ruleId}");
+    }
+
+    /**
+     * Delete a firewall rule for a given server.
+     *
+     * @param $id
+     * @param $ruleId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id, $ruleId)
+    {
+        return $this->sendRequest('DELETE', "servers/{$id}/firewall-rules/{$ruleId}");
+    }
 }
- ?>

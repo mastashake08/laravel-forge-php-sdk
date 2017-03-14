@@ -1,22 +1,72 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Daemon{
-  public static function create($id,$params){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$id}/daemons",$params);
-  }
 
-  public static function all($id){
-    return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."/{$id}/daemons");
-  }
+class Daemon
+{
+    use InteractsWithAPI;
 
-  public static function delete($serverId, $daemonId){
-    return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."/{$serverId}/daemons/{$daemonId}");
-  }
+    /**
+     * Create a daemon for the given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($id, $params)
+    {
+        return $this->sendRequest('POST', "servers/{$id}/daemons", $params);
+    }
 
-  public static function restart($serverId, $daemonId){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."/{$serverId}/daemons/{$daemonId}/restart");
-  }
+    /**
+     * Get a single Daemon for a given server.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id, $params, $daemonId)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/daemons/{$daemonId}", $params);
+    }
+
+    /**
+     * Get all daemons for a given server.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($id)
+    {
+        return $this->sendRequest('GET', "servers/{$id}/daemons");
+    }
+
+    /**
+     * Delete a daemon for a given server.
+     *
+     * @param $serverId
+     * @param $daemonId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($serverId, $daemonId)
+    {
+        return $this->sendRequest('DELETE', "servers/{$serverId}/daemons/{$daemonId}");
+    }
+
+    /**
+     * Restart a daemon for a given server.
+     *
+     * @param $serverId
+     * @param $daemonId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function restart($serverId, $daemonId)
+    {
+        return $this->sendRequest('POST', "/{$serverId}/daemons/{$daemonId}/restart");
+    }
 }
-?>

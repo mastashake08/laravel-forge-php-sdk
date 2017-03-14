@@ -1,31 +1,80 @@
 <?php
+
 namespace Mastashake08\Forge;
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
-class Recipe{
-  public static $_url = "https://forge.laravel.com/api/v1/recipes";
-public static function create($params){
-  return ApiRequestor::sendRequest('POST',self::$_url,$params);
-}
 
-public static function all(){
-  return ApiRequestor::sendRequest('GET',self::$_url);
-}
+class Recipe
+{
+    use InteractsWithAPI;
 
-public static function retrieve($id){
-  return ApiRequestor::sendRequest('GET',self::$_url."/{$id}");
-}
+    /**
+     * Create a new recipe.
+     *
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($params)
+    {
+        return $this->sendRequest('POST', 'recipes', $params);
+    }
 
-public static function update($id,$params){
-  return ApiRequestor::sendRequest('PUT',self::$_url."/{$id}",$params);
-}
+    /**
+     * Get all recipes.
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all()
+    {
+        return $this->sendRequest('GET', 'recipes');
+    }
 
-public static function delete($id){
-  return ApiRequestor::sendRequest('DELETE',self::$_url."/{$id}");
-}
+    /**
+     * Get just one recipe.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($id)
+    {
+        return $this->sendRequest('GET', "recipes/{$id}");
+    }
 
-public static function run($id){
-  return ApiRequestor::sendRequest('POST',self::$_url."/{$id}/run");
+    /**
+     * Update a recipe.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function update($id, $params)
+    {
+        return $this->sendRequest('PUT', "recipes/{$id}", $params);
+    }
+
+    /**
+     * Delete a recipe.
+     *
+     * @param $id
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($id)
+    {
+        return $this->sendRequest('DELETE', "recipes/{$id}");
+    }
+
+    /**
+     * Run a recipe.
+     *
+     * @param $id
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function run($id, $params)
+    {
+        return $this->sendRequest('POST', "recipes/{$id}run", $params);
+    }
 }
-}
-?>
