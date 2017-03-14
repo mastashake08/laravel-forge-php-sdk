@@ -1,26 +1,53 @@
 <?php
-
 namespace Mastashake08\Forge;
+class SSH
+{
+    use InteractsWithAPI;
 
-use Mastashake08\Forge\Forge;
-use Mastashake08\Forge\ApiRequestor;
+    /**
+     * Associate a new key for a given server
+     * @param $serverId
+     * @param $params
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function create($serverId, $params)
+    {
+        return $this->sendRequest('POST', "servers/{$serverId}/keys", $params);
+    }
 
-class SSH{
-  public static function create($serverId,$params){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."{$serverId}/keys",$params);
-  }
+    /**
+     * Get all the keys for a given server
+     * @param $serverId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function all($serverId)
+    {
+        return $this->sendRequest('GET', "servers/{$serverId}/keys");
+    }
 
-  public static function all($serverId){
-    return ApiRequestor::sendRequest('GET',Forge::getBaseUrl()."{$serverId}/keys");
-  }
+    /**
+     * Get a single SSH key for a given server
+     * @param $serverId
+     * @param $keyId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function retrieve($serverId, $keyId)
+    {
+        return $this->sendRequest('POST', "servers/{$serverId}/keys/{$keyId}");
+    }
 
-  public static function retrieve($serverId, $keyId){
-    return ApiRequestor::sendRequest('POST',Forge::getBaseUrl()."{$serverId}/keys/{$keyId}");
-  }
-
-  public static function delete($serverId, $keyId){
-    return ApiRequestor::sendRequest('DELETE',Forge::getBaseUrl()."{$serverId}/keys/{$keyId}");
-  }
+    /**
+     * Delete an SSH key for a given server
+     * @param $serverId
+     * @param $keyId
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function delete($serverId, $keyId)
+    {
+        return $this->sendRequest('DELETE', "servers/{$serverId}/keys/{$keyId}");
+    }
 }
-
-?>
