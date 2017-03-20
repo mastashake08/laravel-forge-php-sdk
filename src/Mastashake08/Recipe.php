@@ -75,6 +75,6 @@ class Recipe
      */
     public function run($id, $params)
     {
-        return $this->sendRequest('POST', "recipes/{$id}run", $params);
+        return $this->sendRequest('POST', "recipes/{$id}/run", $params);
     }
 }
