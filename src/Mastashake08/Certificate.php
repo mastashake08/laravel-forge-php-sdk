@@ -86,7 +86,7 @@ class Certificate
      */
     public function letsEncrypt($id, $siteId, $params)
     {
-        return $this->sendRequest('POST', "servers/{$id}/sites/{$siteId}/letsencrypt", $params);
+        return $this->sendRequest('POST', "servers/{$id}/sites/{$siteId}/certificates/letsencrypt", $params);
     }
 
     /**
